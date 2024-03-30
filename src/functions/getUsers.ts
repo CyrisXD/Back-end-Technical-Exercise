@@ -8,10 +8,16 @@ import { UserInterface } from "../interfaces/userInterface";
 const getUsers = async (SURNAME: string) => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			const snapshot = await db
-				.collection("USERS")
-				.where("SURNAME_LOWER", "==", SURNAME.toLowerCase())
-				.get();
+			let snapshot: FirebaseFirestore.QuerySnapshot<FirebaseFirestore.DocumentData>;
+
+			if (SURNAME === "") {
+				snapshot = await db.collection("USERS").get();
+			} else {
+				snapshot = await db
+					.collection("USERS")
+					.where("SURNAME_LOWER", "==", SURNAME.toLowerCase())
+					.get();
+			}
 
 			if (snapshot.size === 0) {
 				resolve(false);
