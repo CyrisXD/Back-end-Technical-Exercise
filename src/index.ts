@@ -20,7 +20,7 @@ const PORT = 3000;
 // ===================================================
 app.get("/", async (req: Request, res: Response) => {
 	try {
-		const user = await getUsers("milo");
+		const user = await getUsers("");
 		res.json(user);
 	} catch (error) {
 		console.log(error);
