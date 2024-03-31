@@ -57,6 +57,17 @@ Path: /
 
 #### Retrieve user/s based on surname
 
+###### CURL
+
+```bash
+curl -X GET \
+  -H "Content-Type: application/json" \
+  -d '{"SURNAME": "example"}' \
+  https://seahorse-app-mmnsa.ondigitalocean.app/users
+```
+
+###### HTTPS
+
 ```bash
 Method: GET
 Path: /users
@@ -70,6 +81,17 @@ body payload
 ```
 
 #### Submit user to the database
+
+###### CURL
+
+```bash
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"FIRST_NAME": "example", "SURNAME": "example", "EMAIL_ADDRESS": "example@example.com"}' \
+  https://seahorse-app-mmnsa.ondigitalocean.app/addusers
+```
+
+###### HTTPS
 
 ```bash
 Method: POST
